@@ -5,7 +5,7 @@
 ”生成するチケットの情報”は，生成したいチケットに合わせて変更してください．
 ”生成するチケットの情報”と”POSTリクエストでチケットを作成”の部分をループで回せば一度の実行で複数のチケットを作成することもできます．
 また，このスクリプトをsystemd timerやCronJobで定期実行することで，チケットを自動で定期的に作成することができます．
-RedmineAPIやurlの管理には環境変数の使用をお勧めします．
+RedmineAPIやurlの管理には環境変数の使用をお勧めします．`Python 3.12.3`で実行しました．
 
 # 事前準備（このスクリプトの入力）
 `REDMINE_URL`：RedmineサーバのURL
@@ -28,24 +28,15 @@ RedmineAPIやurlの管理には環境変数の使用をお勧めします．
 
 コマンドとその実行結果
 ```bash
-$ python3 -m venv .venv
-The virtual environment was not created successfully because ensurepip is not
-available.  On Debian/Ubuntu systems, you need to install the python3-venv
-package using the following command.
-
-    apt install python3.12-venv
-
-You may need to use sudo with that command.  After installing the python3-venv
-package, recreate your virtual environment.
-
-Failing command: /home/c0a22069/redmine-tickers-create/.venv/bin/python3
+monitoring@monitoring-master-ml:~/ticket-related/redmine-tickets-create$ python3 -m venv .venv
+monitoring@monitoring-master-ml:~/ticket-related/redmine-tickets-create$
 ```
 
 仮想環境をアクティベートする方法
 
 コマンドとその実行結果
 ```bash
-$ source .venv/bin/activate
+monitoring@monitoring-master-ml:~/ticket-related/redmine-tickets-create$ source .venv/bin/activate
 (.venv) monitoring@monitoring-master-ml:~/ticket-related/redmine-tickets-create$
 ```
 
@@ -53,7 +44,7 @@ ticket-create.pyを実行するためには最低でもrequestsモジュール�
 
 コマンドとその実行結果
 ```bash
-$ pip3 install requests
+(.venv) monitoring@monitoring-master-ml:~/ticket-related/redmine-tickets-create$ pip3 install requests
 Collecting requests
   Using cached requests-2.32.4-py3-none-any.whl.metadata (4.9 kB)
 Collecting charset_normalizer<4,>=2 (from requests)
